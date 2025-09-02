@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة منشور جديد - تسريع</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- شريط الرأس -->
+    <header>
+        <div class="header-content">
+            <i class="fas fa-home home-icon" id="home-icon"></i>
+            <h1>إضافة منشور جديد</h1>
+            <div id="user-info"></div>
+        </div>
+    </header>
+
+    <!-- محتوى الصفحة -->
+    <div class="container">
+        <div class="auth-container">
+            <form id="add-post-form" class="auth-form">
+                <div class="form-group">
+                    <label for="post-title">عنوان المنشور</label>
+                    <input type="text" id="post-title" placeholder="أدخل عنواناً جذاباً للمنشور" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="post-description">وصف المنشور</label>
+                    <textarea id="post-description" rows="4" placeholder="أدخل وصفاً تفصيلياً للمنشور" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="post-price">السعر (اختياري)</label>
+                    <input type="text" id="post-price" placeholder="أدخل السعر إن وجد">
+                </div>
+                
+                <div class="form-group">
+                    <label for="post-location">الموقع (اختياري)</label>
+                    <input type="text" id="post-location" placeholder="أدخل موقعك">
+                </div>
+                
+                <div class="form-group">
+                    <label for="post-phone">رقم الهاتف (اختياري)</label>
+                    <input type="tel" id="post-phone" placeholder="أدخل رقم هاتف للتواصل">
+                </div>
+                
+                <div class="form-group">
+                    <label>صورة المنشور</label>
+                    <div class="image-upload-container">
+                        <button type="button" class="btn-outline" id="choose-image-btn">
+                            <i class="fas fa-image"></i> اختيار صورة
+                        </button>
+                        <button type="button" class="btn-outline" id="camera-btn">
+                            <i class="fas fa-camera"></i> الكاميرا
+                        </button>
+                        <span id="image-name">لم يتم اختيار صورة</span>
+                    </div>
+                    <input type="file" id="post-image" accept="image/*" style="display: none;">
+                    
+                    <div id="image-preview" class="image-preview hidden">
+                        <img id="preview-img" src="" alt="معاينة الصورة">
+                        <button type="button" class="btn-remove" id="remove-image-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn" id="publish-btn">
+                    <i class="fas fa-paper-plane"></i> نشر المنشور
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- شاشة التحميل -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <p>جاري نشر المنشور...</p>
+        <div class="progress-bar">
+            <div class="progress" id="upload-progress"></div>
+        </div>
+    </div>
+
+    <!-- شريط التذييل -->
+    <footer>
+        <div class="footer-icons">
+            <div class="icon" onclick="window.location.href='index.html'">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </div>
+            <div class="icon highlight">
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="icon" onclick="window.location.href='profile.html'">
+                <i class="fas fa-user"></i>
+                <span>حسابي</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script type="module" src="firebase-init.js"></script>
+    <script type="module" src="add-post.js"></script>
+</body>
+</html>
